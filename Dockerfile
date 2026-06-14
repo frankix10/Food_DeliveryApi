@@ -1,5 +1,5 @@
-# Stage 1: Build the application
-FROM ://Microsoft.com AS build-env
+# Stage 1: Build the application (Utilisation du SDK)
+FROM ://microsoft.com AS build-env
 WORKDIR /app
 
 # Copy the new solution file and the project folder structure
@@ -15,7 +15,7 @@ COPY . ./
 # Build and publish the release output
 RUN dotnet publish E_CommerceProject.slnx -c Release -o out
 
-# Stage 2: Runtime environment
+# Stage 2: Runtime environment (Utilisation de ASP.NET Core Runtime)
 FROM ://microsoft.com
 WORKDIR /app
 COPY --from=build-env /app/out .
