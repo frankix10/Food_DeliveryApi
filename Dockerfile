@@ -1,4 +1,3 @@
-cat << 'EOF' > Dockerfile
 # Stage 1: Build the application
 FROM ://microsoft.com AS build-env
 WORKDIR /app
